@@ -3,7 +3,7 @@ var router = express.Router();
 const config = require('../package.json')
 
 router.get("/", function(req, res, next) { 
-      res.json(config.path.missedAlertTime);
+      res.json(config.missedAlertTime);
 });
 
 module.exports = router;
