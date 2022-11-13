@@ -20,9 +20,9 @@
     "morgan": "~1.9.1"
   },
   "path": {
-    "rootDirPath": "./api/www",
-    "missedDirPath": "./api/MissedReport",
-    "compiledDirPath": "./api/CompiledReport",
-    "instantDirPath": "./api/InstantReport"
+    "rootDirPath": "./www",
+    "missedDirPath": "./MissedReport",
+    "compiledDirPath": "./CompiledReport",
+    "instantDirPath": "./InstantReport"
   }
 }
