@@ -25,5 +25,5 @@
     "compiledDirPath": "./CompiledReport",
     "instantDirPath": "./InstantReport"
   },
-  "missedAlertTime":1800
+  "missedAlertTime":120
 }
