@@ -16,6 +16,7 @@ var moveMissedFileRouter = require("./routes/moveMissedFile");
 var closedAlertAPIRouter = require("./routes/closedAlertAPI");
 var missedAlertAPIRouter = require("./routes/missedAlertAPI");
 var dirChangeRouter = require("./routes/dirChange");
+var missedAlertTimeAPIRouter = require("./routes/missedAlertTimeAPI");
 
 var app = express();
 
@@ -42,6 +43,7 @@ app.use("/moveMissedFile", moveMissedFileRouter);
 app.use("/closedAlertAPI", closedAlertAPIRouter);
 app.use("/missedAlertAPI", missedAlertAPIRouter);
 app.use("/dirChange", dirChangeRouter);
+app.use("/missedAlertTimeAPI", missedAlertTimeAPIRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
