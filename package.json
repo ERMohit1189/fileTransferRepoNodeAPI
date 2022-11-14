@@ -20,10 +20,10 @@
     "morgan": "~1.9.1"
   },
   "path": {
-    "rootDirPath": "./www",
-    "missedDirPath": "./MissedReport",
-    "compiledDirPath": "./CompiledReport",
-    "instantDirPath": "./InstantReport"
+    "rootDirPath": "http://fileupload.bsninfotech.org/www",
+    "missedDirPath": "http://fileupload.bsninfotech.org/MissedReport",
+    "compiledDirPath": "http://fileupload.bsninfotech.org/CompiledReport",
+    "instantDirPath": "http://fileupload.bsninfotech.org/InstantReport"
   },
   "missedAlertTime":120
 }
