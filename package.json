@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "build": "nexe ./bin/www"
   },
   "dependencies": {
     "chokidar": "^3.5.3",
@@ -17,13 +18,20 @@
     "git": "^0.1.5",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "nexe": "^4.0.0-rc.1",
+    "node-fetch": "^3.3.0"
   },
+  "imageDirPath": "api/www",
   "path": {
-    "rootDirPath": "http://fileupload.bsninfotech.org/www",
-    "missedDirPath": "http://fileupload.bsninfotech.org/MissedReport",
-    "compiledDirPath": "http://fileupload.bsninfotech.org/CompiledReport",
-    "instantDirPath": "http://fileupload.bsninfotech.org/InstantReport"
+    "rootDirPath": "./api/www",
+    "missedDirPath": "./api/MissedReport",
+    "compiledDirPath": "./api/CompiledReport",
+    "instantDirPath": "./api/InstantReport"
   },
-  "missedAlertTime":120
+  "missedAlertTime": 120,
+  "dirRefreshTime": 60,
+  "sliderRefreshTime": 6,
+  "dirMissedTime": 100,
+  "apiUrl": "http://localhost:9000"
 }

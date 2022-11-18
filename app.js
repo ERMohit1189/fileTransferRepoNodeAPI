@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require("cors");
+var config = require('./package.json');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -17,6 +18,9 @@ var closedAlertAPIRouter = require("./routes/closedAlertAPI");
 var missedAlertAPIRouter = require("./routes/missedAlertAPI");
 var dirChangeRouter = require("./routes/dirChange");
 var missedAlertTimeAPIRouter = require("./routes/missedAlertTimeAPI");
+var dirRefreshTimeAPIRouter = require("./routes/dirRefreshTimeAPI");
+var sliderRefreshTimeAPIRouter = require("./routes/sliderRefreshTimeAPI");
+var dirMissedTimeAPIRouter = require("./routes/dirMissedTimeAPI");
 
 var app = express();
 
@@ -30,7 +34,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(express.static(config.imageDirPath));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -44,6 +48,9 @@ app.use("/closedAlertAPI", closedAlertAPIRouter);
 app.use("/missedAlertAPI", missedAlertAPIRouter);
 app.use("/dirChange", dirChangeRouter);
 app.use("/missedAlertTimeAPI", missedAlertTimeAPIRouter);
+app.use("/dirRefreshTimeAPI", dirRefreshTimeAPIRouter);
+app.use("/sliderRefreshTimeAPI", sliderRefreshTimeAPIRouter);
+app.use("/dirMissedTimeAPI", dirMissedTimeAPIRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

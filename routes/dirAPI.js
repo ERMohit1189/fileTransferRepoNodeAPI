@@ -37,20 +37,25 @@ router.get("/", function(req, res, next) {
           fs.readdirSync(path+'/'+file).filter(function (imgfile) {
             if(fs.statSync(path+'/'+file+'/'+imgfile).isFile())
             {
-              const filename=imgfile;
-              const filetime=date.format(fs.statSync(path+'/'+file+'/'+imgfile).mtime,"DD/MMM/YYYY HH:mm:ss");
-              getImageDirectories.push({"FileName":filename,"FileTime":filetime,"FilePath":path+'/'+file+'/'+imgfile})   
+              if(imgfile!="Thumbs.db" && imgfile!=null)
+              {
+                const filename=imgfile;
+                const filetime=date.format(fs.statSync(path+'/'+file+'/'+imgfile).mtime,"DD/MMM/YYYY HH:mm:ss");
+                getImageDirectories.push({"FileName":filename,"FileTime":filetime,
+                "FilePath":path+'/'+file+'/'+imgfile,"ImageUrl":config.apiUrl+'/'+file+'/'+imgfile}) 
+              }
+  
             }
           });
           if(getImageDirectories.length==0)
           {
-            getImageDirectories.push({"FileName":"","FileTime":"","FilePath":""})  
+            getImageDirectories.push({"FileName":"","FileTime":"","FilePath":"","ImageUrl":""})  
           }
           getDirectories.push({"DirName":dirname,"DirTime":dirtime, "Files":getImageDirectories});
         }
       });
       getDirectories.sort((a, b) => {
-        return new Date(a.FileTime) - new Date(b.FileTime); // descending
+        return new Date(b.DirTime) - new Date(a.DirTime); // descending
       })
       res.json(getDirectories);
 });
