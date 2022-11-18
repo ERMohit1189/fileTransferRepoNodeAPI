@@ -30,8 +30,8 @@
     "instantDirPath": "./api/InstantReport"
   },
   "missedAlertTime": 120,
-  "dirRefreshTime": 60,
+  "dirRefreshTime": 6,
   "sliderRefreshTime": 6,
-  "dirMissedTime": 100,
+  "dirMissedTime": 500,
   "apiUrl": "http://localhost:9000"
 }

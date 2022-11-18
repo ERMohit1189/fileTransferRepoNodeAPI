@@ -21,6 +21,10 @@ var missedAlertTimeAPIRouter = require("./routes/missedAlertTimeAPI");
 var dirRefreshTimeAPIRouter = require("./routes/dirRefreshTimeAPI");
 var sliderRefreshTimeAPIRouter = require("./routes/sliderRefreshTimeAPI");
 var dirMissedTimeAPIRouter = require("./routes/dirMissedTimeAPI");
+var moveAllMissedFileRouter = require("./routes/moveAllMissedFile");
+var moveAllMissedInstantFileRouter = require("./routes/moveAllMissedInstantFile");
+
+
 
 var app = express();
 
@@ -51,6 +55,9 @@ app.use("/missedAlertTimeAPI", missedAlertTimeAPIRouter);
 app.use("/dirRefreshTimeAPI", dirRefreshTimeAPIRouter);
 app.use("/sliderRefreshTimeAPI", sliderRefreshTimeAPIRouter);
 app.use("/dirMissedTimeAPI", dirMissedTimeAPIRouter);
+app.use("/moveAllMissedFile", moveAllMissedFileRouter);
+app.use("/moveAllMissedInstantFile", moveAllMissedInstantFileRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
