@@ -4,13 +4,12 @@ const config = require('../package.json')
 
 router.post("/",async function(req, res, next) { 
     try{
-        const  missedDestPath= config.path.missedDirPath;
+        const  compiledDestPath= config.path.compiledDirPath;
         const  instantDestPath= config.path.instantDirPath;
-        const  rootDirPath= config.path.rootDirPath;
         const fs = require('fs')
         const path = require('path')
         const FilesList =req.body.FileList
-        await FilesList.map(async (files,fileindex)=>{
+        await FilesList.map(async (files)=>{
             if(fs.existsSync(files.FilePath))
             {
                 var f=path.basename(files.FilePath);
@@ -19,7 +18,7 @@ router.post("/",async function(req, res, next) {
                     var dest=path.resolve(instantDestPath,f)
                 }
                 else{
-                    var dest=path.resolve(missedDestPath,f)                   
+                    var dest=path.resolve(compiledDestPath,f)                   
                 }
                 await fs.rename(files.FilePath,dest,(err)=>{
                     if(err) return err.message;

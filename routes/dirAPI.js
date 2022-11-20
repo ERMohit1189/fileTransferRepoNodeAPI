@@ -47,10 +47,10 @@ router.get("/", function(req, res, next) {
   
             }
           });
-          if(getImageDirectories.length==0)
-          {
-            getImageDirectories.push({"FileName":"","FileTime":"","FilePath":"","ImageUrl":""})  
-          }
+          // if(getImageDirectories.length==0)
+          // {
+          //   getImageDirectories.push({"FileName":"","FileTime":"","FilePath":"","ImageUrl":""})  
+          // }
           getDirectories.push({"DirName":dirname,"DirTime":dirtime, "Files":getImageDirectories});
         }
       });
